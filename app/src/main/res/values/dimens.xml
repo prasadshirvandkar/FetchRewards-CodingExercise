@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ten_dp_margin">10dp</dimen>
+    <dimen name="sixteen_dp_margin">16dp</dimen>
+    <dimen name="twenty_four_dp_margin">24dp</dimen>
+    <dimen name="thirty_two_dp_margin">32dp</dimen>
+    <dimen name="sixteen_sp_text">16sp</dimen>
+    <dimen name="eight_dp_margin">8dp</dimen>
+    <dimen name="two_dp_margin">2dp</dimen>
+    <dimen name="twelve_dp_margin">12dp</dimen>
+    <dimen name="four_dp_margin">4dp</dimen>
+    <dimen name="six_dp_margin">6dp</dimen>
+    <dimen name="twenty_eight_margin">28dp</dimen>
+
+    <dimen name="twenty_dp_margin">20dp</dimen>
+
+    <dimen name="padding_top">40dp</dimen>
+</resources>

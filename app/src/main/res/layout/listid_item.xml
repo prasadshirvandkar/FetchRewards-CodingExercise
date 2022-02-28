@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/eight_dp_margin">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/eight_dp_margin"
+        android:layout_marginEnd="@dimen/eight_dp_margin"
+        app:cardBackgroundColor="@color/teal_700"
+        app:contentPadding="@dimen/twenty_four_dp_margin"
+        app:cardElevation="@dimen/four_dp_margin"
+        app:cardCornerRadius="@dimen/twelve_dp_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/text_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="36sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icon_expandable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/expandable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingTop="@dimen/eight_dp_margin"
+        app:layout_constraintTop_toBottomOf="@id/layout_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nested_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/load_next_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminate="true"
+            app:trackColor="@color/purple_700"
+            android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
