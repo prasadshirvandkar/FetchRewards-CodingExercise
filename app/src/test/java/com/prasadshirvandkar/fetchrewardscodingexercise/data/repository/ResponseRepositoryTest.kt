@@ -32,7 +32,7 @@ class ResponseRepositoryTest {
     @Test
     fun getDataFromAWS1() {
         val response = responseRepository.getDataFromAWS("https://fetch-hiring.s3.amazonaws.com/sample1.json")
-        assertEquals("<Error>", response.body?.string()?.substring(0, 6))
+        assertEquals("<Error>", response.body?.string()?.substring(39, 46))
     }
 
     @Test(expected = UnknownHostException::class)
