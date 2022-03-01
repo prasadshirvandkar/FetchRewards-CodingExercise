@@ -26,7 +26,7 @@ Libraries Used:
 - Junit, Espresso (Unit Testing)
 
 Built using Latest Gradle Version using Java 11.
-** If building the project, Use Java Version 11 ** 
+**If building the project, Use Java Version 11** 
 
 ## Video Walkthrough
 
