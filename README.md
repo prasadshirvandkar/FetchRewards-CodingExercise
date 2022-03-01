@@ -32,7 +32,7 @@ Built using Latest Gradle Version using Java 11.
 
 Here's the video for implement app:
 
-<img src="coding_exercise.gif" width="385" height="800"/>
+<img src="coding_exercise.gif" width="350" height="800"/>
 
 ## License
 
