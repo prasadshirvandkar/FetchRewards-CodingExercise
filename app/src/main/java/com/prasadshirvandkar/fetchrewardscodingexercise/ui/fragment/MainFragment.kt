@@ -61,9 +61,6 @@ class MainFragment : Fragment(), DefaultLifecycleObserver {
         }
 
         listIdAdapter.onItemClick = { names, key ->
-            /*exitTransition = MaterialElevationScale(false).apply {
-                duration = resources.getInteger(R.integer.motion_duration_large).toLong()
-            }*/
             setFragmentResult(REQUEST_KEY, bundleOf(Pair("names", names), Pair("key", key)))
             parentFragmentManager.commit {
                 replace(R.id.container, DetailFragment.newInstance())

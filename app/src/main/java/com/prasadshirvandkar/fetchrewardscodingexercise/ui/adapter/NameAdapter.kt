@@ -30,14 +30,14 @@ class NameAdapter : RecyclerView.Adapter<NameAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = names[position]
+        viewHolder.textName.text = names[position]
         setFadeAnimation(viewHolder.itemView, position);
     }
 
     override fun getItemCount() = names.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: AppCompatTextView = view.findViewById(R.id.text_name)
+        val textName: AppCompatTextView = view.findViewById(R.id.text_name)
     }
 
     private fun setFadeAnimation(view: View, position: Int) {

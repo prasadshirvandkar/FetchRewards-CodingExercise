@@ -29,14 +29,14 @@ class ListIdAdapter : RecyclerView.Adapter<ListIdAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.textView.text = ids[position].toString()
+        viewHolder.textHeader.text = ids[position].toString()
         setFadeAnimation(viewHolder.itemView, position);
     }
 
     override fun getItemCount() = responseData.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: AppCompatTextView = view.findViewById(R.id.text_header)
+        val textHeader: AppCompatTextView = view.findViewById(R.id.text_header)
 
         init {
             view.setOnClickListener {

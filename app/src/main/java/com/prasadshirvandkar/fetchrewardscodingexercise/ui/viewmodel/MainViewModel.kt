@@ -51,7 +51,7 @@ class MainViewModel : ViewModel() {
                 }
             } catch (e: Exception) {
                 val message = "Error occurred while getting data from Url"
-                Log.e(TAG_RESPONSE, message)
+                Log.e(TAG_RESPONSE, e.message.toString())
                 withContext(Dispatchers.Main) {
                     loading.value = false
                     errorMessage.value = message
