@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/eight_dp_margin"
         android:layout_marginEnd="@dimen/eight_dp_margin"
-        app:cardBackgroundColor="@color/teal_700"
+        app:cardBackgroundColor="@color/material_dynamic_tertiary50"
         app:contentPadding="@dimen/twenty_four_dp_margin"
         app:cardElevation="@dimen/four_dp_margin"
         app:cardCornerRadius="@dimen/twelve_dp_margin"
