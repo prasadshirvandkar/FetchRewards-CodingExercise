@@ -1,11 +1,11 @@
-# *FetchRewards-CodingExercise*
+# *FetchRewards - CodingExercise*
 
 Coding Exercise as part of Interview Process at Fetch Rewards
 
 Submitted by: **Prasad Dashrath Shirvandkar**
 
-Time spent: **6** hours spent in total (Coding)
-Time spent: **7** hours spent in total (Unit Testing)
+- Time spent: **6** hours spent in total (Coding)
+- Time spent: **7** hours spent in total (Unit Testing)
 
 ## User Stories
 
