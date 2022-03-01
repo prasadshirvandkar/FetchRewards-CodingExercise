@@ -10,7 +10,7 @@
     tools:context=".ui.fragment.MainFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/recyclerview_ids"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:visibility="visible"
         android:indeterminate="true"
+        app:trackThickness="@dimen/eight_dp_margin"
         app:indicatorColor="@color/purple_200"
         app:trackColor="@color/purple_700"
         app:layout_constraintTop_toTopOf="parent"

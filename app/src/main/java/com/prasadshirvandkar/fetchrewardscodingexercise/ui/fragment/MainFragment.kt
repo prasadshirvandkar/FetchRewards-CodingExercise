@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import com.google.android.material.transition.MaterialElevationScale
-import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import com.prasadshirvandkar.fetchrewardscodingexercise.Constants
+import com.prasadshirvandkar.fetchrewardscodingexercise.Constants.REQUEST_KEY
 import com.prasadshirvandkar.fetchrewardscodingexercise.Constants.TAG_RESPONSE
 import com.prasadshirvandkar.fetchrewardscodingexercise.R
 import com.prasadshirvandkar.fetchrewardscodingexercise.ui.adapter.ListIdAdapter
@@ -27,7 +27,13 @@ import com.prasadshirvandkar.fetchrewardscodingexercise.ui.viewmodel.MainViewMod
 class MainFragment : Fragment(), DefaultLifecycleObserver {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance(): MainFragment {
+            return MainFragment().apply {
+                arguments = Bundle().apply {
+                    putString("url", Constants.FETCHING_URL)
+                }
+            }
+        }
     }
 
     private lateinit var viewModel: MainViewModel
@@ -36,36 +42,30 @@ class MainFragment : Fragment(), DefaultLifecycleObserver {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.main_fragment, container, false)
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
 
-        enterTransition = MaterialFadeThrough().apply {
-            duration = resources.getInteger(R.integer.motion_duration_large).toLong()
-        }
+        val view: View = inflater.inflate(R.layout.main_fragment, container, false)
 
         val loadingIndicator: CircularProgressIndicator = view.findViewById(R.id.load_data)
         val message: AppCompatTextView = view.findViewById(R.id.text_message)
 
-        val recAdapter = ListIdAdapter()
+        val listIdAdapter = ListIdAdapter()
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerview)
-        recyclerView.apply {
+        val recyclerViewIds: RecyclerView = view.findViewById(R.id.recyclerview_ids)
+        recyclerViewIds.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = recAdapter
+            adapter = listIdAdapter
             hasFixedSize()
             (itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
         }
 
-        recAdapter.onItemClick = { names, key ->
+        listIdAdapter.onItemClick = { names, key ->
             /*exitTransition = MaterialElevationScale(false).apply {
                 duration = resources.getInteger(R.integer.motion_duration_large).toLong()
             }*/
-            reenterTransition = MaterialElevationScale(true).apply {
-                duration = resources.getInteger(R.integer.motion_duration_large).toLong()
-            }
-            setFragmentResult("requestKey", bundleOf(Pair("names", names), Pair("key", key)))
+            setFragmentResult(REQUEST_KEY, bundleOf(Pair("names", names), Pair("key", key)))
             parentFragmentManager.commit {
-                setReorderingAllowed(true)
-                setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
                 replace(R.id.container, DetailFragment.newInstance())
                 addToBackStack(TAG_RESPONSE)
             }
@@ -73,15 +73,15 @@ class MainFragment : Fragment(), DefaultLifecycleObserver {
 
         viewModel.urlResponse.observe(viewLifecycleOwner) { response ->
             if (response != null) {
-                recAdapter.setResponseData(response)
-                recyclerView.visibility = View.VISIBLE
+                listIdAdapter.setResponseData(response)
+                recyclerViewIds.visibility = View.VISIBLE
             }
         }
 
         viewModel.loading.observe(viewLifecycleOwner) { loadingStatus ->
             if (loadingStatus) {
                 loadingIndicator.visibility = View.VISIBLE
-                recyclerView.visibility = View.GONE
+                recyclerViewIds.visibility = View.GONE
                 message.visibility = View.GONE
             } else {
                 loadingIndicator.visibility = View.GONE
@@ -92,7 +92,7 @@ class MainFragment : Fragment(), DefaultLifecycleObserver {
             errorMessage?.let {
                 message.visibility = View.VISIBLE
                 message.text = errorMessage
-                recyclerView.visibility = View.GONE
+                recyclerViewIds.visibility = View.GONE
             }
         }
 
@@ -103,7 +103,8 @@ class MainFragment : Fragment(), DefaultLifecycleObserver {
         super.onAttach(context)
         activity?.lifecycle?.addObserver(ActivityLifeObserver {
             viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-            viewModel.callUrl(Constants.FETCHING_URL)
+            viewModel.callUrl(requireArguments().getString("url", Constants.FETCHING_URL)!!)
+            // Toast.makeText(activity, url, Toast.LENGTH_LONG).show()
         })
     }
 

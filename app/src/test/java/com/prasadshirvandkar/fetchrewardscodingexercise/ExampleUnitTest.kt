@@ -1,10 +1,8 @@
 package com.prasadshirvandkar.fetchrewardscodingexercise
 
 import com.prasadshirvandkar.fetchrewardscodingexercise.data.model.UrlResponse
-import com.prasadshirvandkar.fetchrewardscodingexercise.ui.viewmodel.MainViewModel
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -30,18 +28,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun testMapConversion() {
-        val responseList = mutableListOf<UrlResponse>()
-        (0..15).forEachIndexed { i, _ ->
-            responseList.add(UrlResponse(1, i % 3, "test${i}"))
-        }
-
-        val mappedResponse = MainViewModel().convertToMap(responseList)
-        assertEquals(3, mappedResponse.size)
-    }
-
-    @Test
     fun testAdd() {
-        print("Item 114".subSequence(5, 8))
+        assertEquals("114", "Item 114".subSequence(5, 8))
     }
 }

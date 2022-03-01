@@ -7,16 +7,19 @@ import android.view.animation.AlphaAnimation
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.prasadshirvandkar.fetchrewardscodingexercise.R
-import java.util.ArrayList
 
 
 class NameAdapter : RecyclerView.Adapter<NameAdapter.ViewHolder>() {
-    private var names = listOf<String?>()
+    private var names = mutableListOf<String?>()
     private var lastPosition = -1
 
-    fun setNames(names: ArrayList<String?>) {
-        this.names = names.sortedBy { it!!.substring(5, it.length).toInt() }
+    fun setNames(names: List<String?>) {
+        this.names.addAll(names)
         notifyItemInserted(0)
+    }
+
+    fun addNames(names: List<String?>) {
+        this.names.addAll(names)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -39,7 +42,7 @@ class NameAdapter : RecyclerView.Adapter<NameAdapter.ViewHolder>() {
 
     private fun setFadeAnimation(view: View, position: Int) {
         if(position > lastPosition) {
-            view.startAnimation(AlphaAnimation(0.0f, 1.0f).apply { duration = 500 })
+            view.startAnimation(AlphaAnimation(0.0f, 1.0f).apply { duration = 300 })
             lastPosition = position
         }
     }

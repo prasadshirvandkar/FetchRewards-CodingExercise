@@ -7,6 +7,7 @@ import com.beust.klaxon.Klaxon
 import com.prasadshirvandkar.fetchrewardscodingexercise.Constants.TAG_RESPONSE
 import com.prasadshirvandkar.fetchrewardscodingexercise.data.datasource.OkHttpRequest
 import com.prasadshirvandkar.fetchrewardscodingexercise.data.model.UrlResponse
+import com.prasadshirvandkar.fetchrewardscodingexercise.data.model.convertToMap
 import com.prasadshirvandkar.fetchrewardscodingexercise.data.repository.ResponseRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +36,7 @@ class MainViewModel : ViewModel() {
                 val responseBody: String? = response.body?.string()
                 if (responseBody != null) {
                     val parseResponse: List<UrlResponse> = Klaxon().parseArray(responseBody)!!
-                    val responseMap = convertToMap(parseResponse)
+                    val responseMap = parseResponse.convertToMap()
                     withContext(Dispatchers.Main) {
                         urlResponse.value = responseMap
                         loading.value = false
@@ -57,10 +58,5 @@ class MainViewModel : ViewModel() {
                 }
             }
         }
-    }
-
-    fun convertToMap(response: List<UrlResponse>): Map<Int, List<String?>> {
-        return response.filter { !it.name.isNullOrEmpty() }.groupBy { it.listId }
-            .mapValues { entry -> entry.value.map { it.name } }.toSortedMap()
     }
 }

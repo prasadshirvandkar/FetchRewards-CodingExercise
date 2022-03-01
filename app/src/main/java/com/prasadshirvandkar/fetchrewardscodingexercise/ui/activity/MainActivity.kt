@@ -1,8 +1,12 @@
 package com.prasadshirvandkar.fetchrewardscodingexercise.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import com.prasadshirvandkar.fetchrewardscodingexercise.Constants
 import com.prasadshirvandkar.fetchrewardscodingexercise.R
 import com.prasadshirvandkar.fetchrewardscodingexercise.ui.fragment.MainFragment
 
@@ -16,9 +20,14 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, MainFragment.newInstance(), "TAG")
                 .commitNow()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d("TAG", "Saved")
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
