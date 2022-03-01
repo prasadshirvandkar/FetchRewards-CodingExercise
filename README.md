@@ -9,7 +9,7 @@ Time spent: **7** hours spent in total (Unit Testing)
 
 ## User Stories
 
-The following functionality is added:
+**The following functionality is added:**
 
 * [X] Rest Call to get Json Data
 * [X] Segregated UI for List Ids and Names Grouped by Id
@@ -19,7 +19,7 @@ The following functionality is added:
 
 Built using MVVM Architectural Pattern using ViewModels to separate UI and Backend Concerns and Enable Loose Coupling
 
-Libraries Used:
+**Libraries Used:**
 - Android X Libraries
 - OkHttp (For Rest Call)
 - Klaxon (JSON Parser)
@@ -32,7 +32,7 @@ Built using Latest Gradle Version using Java 11.
 
 Here's the video for implement app:
 
-<img src="coding_exercise.gif" width="400" height="890"/>
+<img src="coding_exercise.gif" width="385" height="800"/>
 
 ## License
 
