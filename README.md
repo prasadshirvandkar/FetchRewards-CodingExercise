@@ -12,7 +12,7 @@ Submitted by: **Prasad Dashrath Shirvandkar**
 **The following functionality is added:**
 
 * [X] Rest Call to get Json Data
-* [X] Segregated UI for List Ids and Names Grouped by Id
+* [X] Segregated UI for List Ids and Names Sorted Grouped by Id
 * [X] Material You Themed Colors
 * [X] Espresso JUnit Test
 * [X] Code written in Kotlin
