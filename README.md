@@ -30,9 +30,7 @@ Built using Latest Gradle Version using Java 11.
 
 ## Video Walkthrough
 
-Here's the video for implement stories:
-
-The video showcases the main features that the app offers and even search debouncing while searching "Apple". You can also see caching implemented using Recent Searches.
+Here's the video for implement app:
 
 <img src="coding_exercise.gif" width="400" height="890"/>
 
