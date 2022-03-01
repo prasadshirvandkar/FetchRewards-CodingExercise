@@ -31,7 +31,7 @@ class DetailFragment: Fragment() {
         enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true)
         returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false)
 
-        val view: View = inflater.inflate(R.layout.second_fragment, container, false)
+        val view: View = inflater.inflate(R.layout.detail_fragment, container, false)
 
         var count = 20
         val nameAdapter = NameAdapter()
