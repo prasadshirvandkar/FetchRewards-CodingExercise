@@ -4,7 +4,7 @@ Coding Exercise as part of Interview Process at Fetch Rewards
 
 Submitted by: **Prasad Dashrath Shirvandkar**
 
-- Time spent: **6** hours spent in total (Coding)
+- Time spent: **7** hours spent in total (Coding)
 - Time spent: **7** hours spent in total (Unit Testing)
 
 ## User Stories
@@ -13,7 +13,6 @@ Submitted by: **Prasad Dashrath Shirvandkar**
 
 * [X] Rest Call to get Json Data
 * [X] Segregated UI for List Ids and Names Sorted Grouped by Id
-* [X] Material You Themed Colors
 * [X] Espresso JUnit Test
 * [X] Code written in Kotlin
 
@@ -25,7 +24,7 @@ Built using MVVM Architectural Pattern using ViewModels to separate UI and Backe
 - Klaxon (JSON Parser)
 - Junit, Espresso (Unit Testing)
 
-Built using Latest Gradle Version using Java 11.
+Built using Latest Gradle Version which uses Java 11.
 **If building the project, Use Java Version 11** 
 
 ## Video Walkthrough
