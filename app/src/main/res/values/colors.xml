@@ -12,4 +12,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="color_primary_500">#0354d2</color>
+    <color name="color_primary_700">#0042bb</color>
+    <color name="color_primary_200">#99aae9</color>
+
+    <color name="color_secondary_500">#d68a06</color>
+    <color name="color_secondary_700">#cd7100</color>
+    <color name="color_secondary_200">#e8c27d</color>
+
+    <color name="color_triadic_500">#03bed2</color>
+    <color name="color_triadic_700">#0498a6</color>
+    <color name="color_triadic_200">#81dfe8</color>
+
 </resources>

@@ -13,7 +13,6 @@ import com.prasadshirvandkar.fetchrewardscodingexercise.R
 import com.prasadshirvandkar.fetchrewardscodingexercise.TestUtils.atPositionOnView
 import com.prasadshirvandkar.fetchrewardscodingexercise.WaitUntilVisibleAction
 import org.hamcrest.CoreMatchers.not
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 

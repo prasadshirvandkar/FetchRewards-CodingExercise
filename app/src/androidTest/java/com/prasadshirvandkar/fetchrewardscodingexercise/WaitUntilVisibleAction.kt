@@ -9,7 +9,7 @@ import org.hamcrest.CoreMatchers.any
 import org.hamcrest.Matcher
 import java.util.concurrent.TimeoutException
 
-class WaitUntilVisibleAction(private val timeout: Long = 5000) : ViewAction {
+class WaitUntilVisibleAction(private val timeout: Long = 10000) : ViewAction {
     override fun getConstraints(): Matcher<View> {
         return any(View::class.java)
     }
